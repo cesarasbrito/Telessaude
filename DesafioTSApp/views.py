@@ -50,8 +50,9 @@ def solicitante_new(request):
 def solicitacao_new(request):
     if request.method == "POST":
         idSolicitante = request.POST.get("solicitante")
-        checkSolicitanteToday = Solicitacao.objects.filter(solicitante_id=idSolicitante).count()
-        if checkSolicitanteToday > 0:
+        checkSolicitanteToday = Solicitacao.objects.filter(solicitante_id = idSolicitante)
+        countItens = checkSolicitanteToday.filter(solicitante__solicitacao__DataSolicitacao__gt=timezone.now().date()).count()
+        if countItens > 0 :
             messages.error(request, 'usuario possui ja uma solicitação no dia de hoje')
             return render(request, 'TS/solicitacao_new.html')
         else:
