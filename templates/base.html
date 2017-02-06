@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/TS.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <a href="{% url 'DesafioTSApp.views.teleconsultor_new' %}" class="top-menu"><label>TeleConsultor</label><span class="glyphicon glyphicon-plus"></span></a>
+    <a href="{% url 'DesafioTSApp.views.solicitante_new' %}" class="top-menu"><label>Solicitante</label><span class="glyphicon glyphicon-plus"></span></a>
+    <a href="{% url 'DesafioTSApp.views.solicitacao_new' %}" class="top-menu"><label>Solicitação</label><span class="glyphicon glyphicon-plus"></span></a>
+    <title>Desafio TS</title>
+</head>
+<body>
+
+<div class="page-header">
+    <h1><a href="/">Desafio TS</a></h1>
+</div>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.DataSolicitacao %}
+            <div class="date">
+                {{ post.DataSolicitacao }}
+            </div>
+        {% endif %}
+        <p>{{ post.Texto|linebreaksbr }}</p>
+    </div>
+{% endblock %}
